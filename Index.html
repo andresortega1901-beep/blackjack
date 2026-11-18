@@ -1,0 +1,678 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;base target="_top"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="utf-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>:root { --bg:#0b1220; --panel:#131e30; --panel2:#1b2940; --text:#eef4ff; --muted:#a9b8ce; --line:#2a3b55; --green:#36c98f; --amber:#f5bd4f; --red:#ff7070; --blue:#7eb6ff; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>* { box-sizing:border-box; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body { margin:0; background:var(--bg); color:var(--text); font:16px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; padding:14px 12px 30px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.wrap { max-width:860px; margin:auto; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>header { display:flex; justify-content:space-between; align-items:center; gap:10px; margin:4px 0 14px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>h1 { font-size:22px; margin:0; letter-spacing:.2px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.sub { color:var(--muted); font-size:12px; margin-top:4px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.pill { border:1px solid var(--line); color:var(--green); padding:6px 9px; border-radius:20px; font-size:11px; white-space:nowrap; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.panel { background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:14px; margin:12px 0; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>h2 { font-size:16px; margin:0 0 10px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.muted { color:var(--muted); font-size:12px; line-height:1.45; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.stats { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-top:10px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.stat { background:var(--panel2); border-radius:12px; padding:10px 8px; min-width:0; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.stat small { display:block; color:var(--muted); font-size:10px; min-height:25px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.stat strong { display:block; font-size:19px; font-variant-numeric:tabular-nums; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.green { color:var(--green); } .amber { color:var(--amber); } .red { color:var(--red); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>button, select { font:inherit; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>button { border:1px solid var(--line); background:var(--panel2); color:var(--text); border-radius:11px; min-height:44px; cursor:pointer; touch-action:manipulation; padding:0 12px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>button:active { transform:scale(.97); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.primary { background:#176b52; border-color:#238765; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.warn { border-color:#8b6530; color:var(--amber); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.danger { border-color:#7b3d49; color:#ff9ca4; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.two { display:grid; grid-template-columns:1fr 1fr; gap:10px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.three { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>label { display:block; color:var(--muted); font-size:12px; margin-bottom:5px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>select { width:100%; background:var(--panel2); color:var(--text); border:1px solid var(--line); padding:11px; border-radius:10px; }</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Estilos Mesa de 7 Puestos */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.casino-table { background:#0b261a; border:2px solid #1a4a32; border-radius:16px; padding:15px; margin-top:10px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.dealer-area { text-align:center; margin-bottom:15px; padding-bottom:10px; border-bottom:1px dashed #1a4a32; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.seats-grid { display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:10px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media(max-width:760px) { .seats-grid { grid-template-columns:repeat(2, minmax(0, 1fr)); } .stats { grid-template-columns:repeat(2,1fr); } .three { grid-template-columns:1fr; } }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.seat-box { background:#113322; border:1px solid #235c3f; border-radius:12px; padding:10px; min-height:130px; display:flex; flex-direction:column; justify-content:space-between; cursor:pointer; transition:border-color .15s, box-shadow .15s; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.seat-box.active-analyzing { border-color:var(--green); box-shadow:0 0 10px rgba(54,201,143,0.3); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.seat-header { display:flex; justify-content:space-between; align-items:center; font-size:12px; font-weight:bold; color:#a2dcc3; margin-bottom:4px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.cards-container { display:flex; flex-wrap:wrap; gap:4px; min-height:30px; align-items:center; margin-bottom:4px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card-chip { background:#fff; color:#111; padding:2px 6px; border-radius:6px; font-weight:bold; font-size:12px; box-shadow:0 2px 4px rgba(0,0,0,0.3); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card-chip.hidden-card { background:#2a3b55; color:#a9b8ce; border:1px dashed #7eb6ff; }</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.seat-optimal-action { font-size:11px; font-weight:bold; margin-top:3px; padding:2px 4px; border-radius:5px; background:#0b261a; text-align:center; border:1px solid #235c3f; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.split-btn { background:#176b52; border-color:#238765; color:#fff; font-size:10px; padding:2px 6px; border-radius:6px; margin-top:4px; width:100%; min-height:24px; cursor:pointer; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.split-subhand { border-top:1px dashed #235c3f; margin-top:4px; padding-top:4px; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Estilos del botón de voz */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.voice-mic-btn { background: #1b3d2f; border: 2px solid var(--green); color: var(--green); display: flex; align-items: center; justify-content: center; gap: 6px; font-weight: bold; border-radius: 10px; width: 100%; min-height: 44px; cursor: pointer; transition: all 0.2s; margin-bottom: 8px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.voice-mic-btn.listening { background: #176b52; color: #fff; animation: pulse-mic 1.5s infinite; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@keyframes pulse-mic { 0% { box-shadow: 0 0 0 0 rgba(54, 201, 143, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(54, 201, 143, 0); } 100% { box-shadow: 0 0 0 0 rgba(54, 201, 143, 0); } }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.shoe-audit { margin-top:10px; padding:10px; border-radius:10px; background:var(--panel2); border:1px solid var(--line); font-size:12px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.shoe-audit strong { display:inline; font-size:13px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.audit-ok { color:#48d597; } .audit-warn { color:#ff7373; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.history { max-height:100px; overflow:auto; color:var(--muted); font-size:12px; line-height:1.6; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1">&lt;div class="wrap"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;header&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div&gt;&lt;h1&gt;Blackjack Assistant Pro&lt;/h1&gt;&lt;div class="sub"&gt;Mesa Multi-Puesto (7 Asientos) + Hi-Lo + Voz&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="pill"&gt;ACTIVO&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- PANEL UNIFICADO DE CONTROL Y ANÁLISIS RÁPIDO --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section class="panel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;1. Panel de Control y Análisis Rápido&lt;/h2&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div style="background:var(--panel2); padding:12px; border-radius:12px; border:1px solid var(--line); margin-bottom:12px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="three"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;&lt;label for="decks"&gt;Barajas del zapato&lt;/label&gt;&lt;select id="decks" onchange="resetAll()"&gt;&lt;option value="8" selected&gt;8 barajas&lt;/option&gt;&lt;option value="6"&gt;6 barajas&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;&lt;label for="penetration"&gt;Nivel de penetración&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;select id="penetration" onchange="renderCounters()"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;option value="50"&gt;50 %&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;option value="60" selected&gt;60 %&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;option value="70"&gt;70 % (Profundo)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;&lt;label for="numSeats"&gt;Puestos activos (1 a 7)&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;select id="numSeats" onchange="updateSeatsCount()"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;option value="1"&gt;1 Puesto&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;option value="2"&gt;2 Puestos&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;option value="3"&gt;3 Puestos&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;option value="4"&gt;4 Puestos&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;option value="5"&gt;5 Puestos&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;option value="6"&gt;6 Puestos&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;option value="7" selected&gt;7 Puestos (Completa)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="two" style="margin-top:10px"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;&lt;label&gt;Regla de Mesa&lt;/label&gt;&lt;select id="soft17" onchange="renderCounters()"&gt;&lt;option value="S17" selected&gt;Crupier se planta en S17&lt;/option&gt;&lt;option value="H17"&gt;Crupier pide en H17&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;&lt;label&gt;Doblar tras dividir (DAS)&lt;/label&gt;&lt;select id="das" onchange="renderCounters()"&gt;&lt;option value="yes" selected&gt;Permitido (DAS)&lt;/option&gt;&lt;option value="no"&gt;No permitido&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;label class="check" style="margin-top:8px"&gt;&lt;input type="checkbox" id="surrender" onchange="renderCounters()"&gt; Permitir rendición tardía&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="stats"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat"&gt;&lt;small&gt;Conteo Corriente (RC)&lt;/small&gt;&lt;strong id="rc"&gt;0&lt;/strong&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat"&gt;&lt;small&gt;Conteo Verdadero (TC)&lt;/small&gt;&lt;strong id="tc"&gt;0.00&lt;/strong&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat"&gt;&lt;small&gt;Probabilidad EV&lt;/small&gt;&lt;strong id="betEdge" class="red"&gt;−0.50%&lt;/strong&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat"&gt;&lt;small&gt;Apuesta Sugerida&lt;/small&gt;&lt;strong id="betSignal" class="amber"&gt;Mínima&lt;/strong&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="muted" id="remaining" style="margin-top:10px"&gt;Barajas estimadas restantes: 8.00&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- MESA VIRTUAL DE 7 PUESTOS --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section class="panel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;2. Distribución de la Mesa&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="muted" style="margin-bottom:8px"&gt;Usa el botón de voz para dictar (ej. "As", "Diez") o los botones táctiles optimizados (10 y As destacados).&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="casino-table"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Crupier --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="dealer-area"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div style="font-size:12px; font-weight:bold; color:#a2dcc3; margin-bottom:4px;"&gt;CRUPIER (Dealer)&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="cards-container" id="dealerCards" style="justify-content:center;"&gt;&lt;span class="muted"&gt;Sin cartas&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div style="margin-top:6px; display:flex; justify-content:center; gap:6px; flex-wrap:wrap;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;button type="button" class="smallbtn warn" onclick="selectTarget('dealer')" style="font-size:11px; min-height:30px;"&gt;+ Asignar carta visible&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;button type="button" class="smallbtn primary" onclick="assignHiddenDealerCard()" style="font-size:11px; min-height:30px;"&gt;+ Carta oculta al Dealer&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;button type="button" class="smallbtn warn" onclick="revealHiddenDealerCard()" style="font-size:11px; min-height:30px;"&gt;Revelar carta oculta&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Asientos de los Jugadores --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="seats-grid" id="seatsGrid"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- MÓDULO DE VOZ Y SELECTOR TÁCTIL OPTIMIZADO --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div style="margin-top:14px; background:#0f2b1d; padding:12px; border-radius:12px; border:1px solid #1a4a32;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span id="targetIndicator" style="font-size:13px; font-weight:bold; color:var(--green);"&gt;Seleccionando para: CRUPIER&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button type="button" class="danger smallbtn" onclick="undoLastGlobalCard()" style="min-height:30px; font-size:11px;"&gt;Deshacer&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Botón de Control por Voz --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button type="button" id="voiceMicBtn" class="voice-mic-btn" onclick="toggleVoiceRecognition()"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>🎤 &lt;span id="voiceStatusText"&gt;Activar Comando por Voz (Micrófono)&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/button&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Fila 1: 10 y As gigantes --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px; margin-bottom:6px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button type="button" onclick="handlePickedCard('10')" style="background:#1b4a34; border-color:#36c98f; font-size:18px; font-weight:bold; min-height:50px; color:#36c98f;"&gt;10 (10, J, Q, K)&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button type="button" onclick="handlePickedCard('A')" style="background:#1b4a34; border-color:#36c98f; font-size:18px; font-weight:bold; min-height:50px; color:#36c98f;"&gt;AS (A)&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Fila 2: Números del 2 al 9 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div style="display:grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap:4px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button type="button" onclick="handlePickedCard('2')" style="min-height:40px; font-size:14px; font-weight:bold; background:#1b3d2f;"&gt;2&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button type="button" onclick="handlePickedCard('3')" style="min-height:40px; font-size:14px; font-weight:bold; background:#1b3d2f;"&gt;3&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button type="button" onclick="handlePickedCard('4')" style="min-height:40px; font-size:14px; font-weight:bold; background:#1b3d2f;"&gt;4&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button type="button" onclick="handlePickedCard('5')" style="min-height:40px; font-size:14px; font-weight:bold; background:#1b3d2f;"&gt;5&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button type="button" onclick="handlePickedCard('6')" style="min-height:40px; font-size:14px; font-weight:bold; background:#1b3d2f;"&gt;6&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button type="button" onclick="handlePickedCard('7')" style="min-height:40px; font-size:14px; font-weight:bold; background:#1b3d2f;"&gt;7&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button type="button" onclick="handlePickedCard('8')" style="min-height:40px; font-size:14px; font-weight:bold; background:#1b3d2f;"&gt;8&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button type="button" onclick="handlePickedCard('9')" style="min-height:40px; font-size:14px; font-weight:bold; background:#1b3d2f;"&gt;9&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="shoe-audit" id="shoeAudit" aria-live="polite" style="margin-top:8px;"&gt;Control de cartas: sin cartas registradas.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section class="panel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Registro Histórico y Control&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="history" id="history"&gt;Sin cartas registradas.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="actions" style="margin-top:10px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button type="button" onclick="exportLog()"&gt;Exportar CSV&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button type="button" onclick="clearRound()" class="warn"&gt;Limpiar mesa / Nueva ronda&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button type="button" onclick="resetAll()" class="danger"&gt;Reiniciar Zapato Completo&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1">let shoe = [];<span class="Apple-converted-space"> </span></p>
+<p class="p1">let globalLog = [];<span class="Apple-converted-space"> </span></p>
+<p class="p2"><br></p>
+<p class="p1">let numSeats = 7;</p>
+<p class="p1">let selectedTarget = 'seat-1-0';<span class="Apple-converted-space"> </span></p>
+<p class="p1">let revealingHiddenDealerCard = false;</p>
+<p class="p1">let initialDealOrder = [];</p>
+<p class="p1">let initialDealIndex = 0;</p>
+<p class="p1">let tableState = {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>dealer: [],</p>
+<p class="p1"><span class="Apple-converted-space">  </span>seats: {}</p>
+<p class="p1">};</p>
+<p class="p2"><br></p>
+<p class="p1">// Variables para el reconocimiento de voz</p>
+<p class="p1">let recognition = null;</p>
+<p class="p1">let isListening = false;</p>
+<p class="p2"><br></p>
+<p class="p1">function initTableState() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>for (let i = 1; i &lt;= 7; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>tableState.seats[i] = {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>hands: [[]],</p>
+<p class="p1"><span class="Apple-converted-space">      </span>activeSub: 0</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">}</p>
+<p class="p1">initTableState();</p>
+<p class="p2"><br></p>
+<p class="p1">function hilo(rank) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (['2','3','4','5','6'].includes(rank)) return 1;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (['10','A'].includes(rank)) return -1;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>return 0;</p>
+<p class="p1">}</p>
+<p class="p1">function el(id){ return document.getElementById(id); }</p>
+<p class="p2"><br></p>
+<p class="p1">function initApp() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>updateSeatsCount();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>renderTable();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>renderCounters();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>initVoiceRecognition();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">// Configuración de la API de Voz</p>
+<p class="p1">function initVoiceRecognition() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (!SpeechRecognition) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>el('voiceStatusText').textContent = 'Voz no soportada en este navegador';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>el('voiceMicBtn').style.opacity = '0.5';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>el('voiceMicBtn').disabled = true;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>recognition = new SpeechRecognition();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>recognition.lang = 'es-ES';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>recognition.continuous = true;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>recognition.interimResults = false;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>recognition.onresult = (event) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const transcript = event.results[event.results.length - 1][0].transcript.trim().toLowerCase();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>parseVoiceCommand(transcript);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>recognition.onend = () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (isListening) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>try { recognition.start(); } catch(e) {}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>};</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function toggleVoiceRecognition() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (!recognition) return;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const btn = el('voiceMicBtn');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const text = el('voiceStatusText');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (!isListening) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>recognition.start();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>isListening = true;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>btn.classList.add('listening');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text.textContent = 'Escuchando cartas... (ej. "As", "Diez", "Rey")';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>} catch(e) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>console.error(e);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>isListening = false;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>recognition.stop();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>btn.classList.remove('listening');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>text.textContent = 'Activar Comando por Voz (Micrófono)';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function parseVoiceCommand(spokenText) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>let cleaned = spokenText.replace(/[.,\/#!$%\^&amp;\*;:{}=\-_`~()?]/g,"").trim();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const voiceMap = {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>'as': 'A', 'haz': 'A', '1': 'A',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>'dos': '2', '2': '2',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>'tres': '3', '3': '3',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>'cuatro': '4', '4': '4',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>'cinco': '5', '5': '5',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>'seis': '6', '6': '6',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>'siete': '7', '7': '7',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>'ocho': '8', '8': '8',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>'nueve': '9', '9': '9',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>'diez': '10', '10': '10', 'jota': 'J', 'j': '10', 'reina': 'Q', 'q': '10', 'rey': 'K', 'king': 'K', 'k': '10'</p>
+<p class="p1"><span class="Apple-converted-space">  </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const words = cleaned.split(/\s+/);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>for (let w of words) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (voiceMap[w]) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let val = voiceMap[w];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(['J','Q','K'].includes(val)) val = '10'; // Traduce figuras automáticamente a 10</p>
+<p class="p1"><span class="Apple-converted-space">      </span>handlePickedCard(val);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>break;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function updateSeatsCount() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>numSeats = Number(el('numSeats').value);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>buildInitialDealOrder();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>renderTable();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>updateTargetIndicator();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function buildInitialDealOrder() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const oneRound = [];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>for (let i = 1; i &lt;= numSeats; i++) oneRound.push(`seat-${i}-0`);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>oneRound.push('dealer');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>initialDealOrder = [...oneRound, ...oneRound];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>initialDealIndex = 0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>selectedTarget = 'seat-1-0';</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function updateTargetIndicator() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const indicator = el('targetIndicator');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (initialDealIndex &lt; initialDealOrder.length) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const target = initialDealOrder[initialDealIndex];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>selectedTarget = target;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (target === 'dealer') {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>indicator.textContent = `Reparto automático ${initialDealIndex + 1}/${initialDealOrder.length}: DEALER`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const parts = target.split('-');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>indicator.textContent = `Reparto automático ${initialDealIndex + 1}/${initialDealOrder.length}: PUESTO ${parts[1]}`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>indicator.textContent = 'Selecciona un puesto o submano para continuar.';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function selectTarget(target) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>selectedTarget = target;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (target === 'dealer') {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>el('targetIndicator').textContent = 'Seleccionado: DEALER';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const parts = target.split('-');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const seatNum = parts[1];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const subIdx = parts[2] || 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>tableState.seats[seatNum].activeSub = Number(subIdx);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>el('targetIndicator').textContent = `Seleccionado: PUESTO ${seatNum} (Mano ${Number(subIdx)+1})`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>renderTable();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function assignHiddenDealerCard() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const decks = Number(el('decks').value);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (shoe.length &gt;= decks * 52) { alert('El zapato está completo.'); return; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const isAutomaticDeal = initialDealIndex &lt; initialDealOrder.length;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const autoIndexBefore = isAutomaticDeal &amp;&amp; initialDealOrder[initialDealIndex] === 'dealer' ? initialDealIndex : null;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>shoe.push('??');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>globalLog.push({ target: 'dealer', card: '??', autoIndexBefore });</p>
+<p class="p1"><span class="Apple-converted-space">  </span>tableState.dealer.push('??');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (autoIndexBefore !== null) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>initialDealIndex++;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>updateTargetIndicator();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>selectedTarget = 'dealer';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>el('targetIndicator').textContent = 'Carta oculta asignada al DEALER';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>renderTable();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>renderCounters();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function revealHiddenDealerCard() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const hiddenIndex = tableState.dealer.lastIndexOf('??');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (hiddenIndex === -1) { alert('No hay ninguna carta oculta del Dealer para revelar.'); return; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>revealingHiddenDealerCard = true;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>selectedTarget = 'dealer';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>el('targetIndicator').textContent = 'Revelando carta oculta: selecciona su valor';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>renderTable();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function handlePickedCard(rank) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (revealingHiddenDealerCard) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const dealerIndex = tableState.dealer.lastIndexOf('??');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const logIndex = globalLog.map(x =&gt; x).lastIndexOf(</p>
+<p class="p1"><span class="Apple-converted-space">      </span>globalLog.slice().reverse().find(x =&gt; x.target === 'dealer' &amp;&amp; x.card === '??')</p>
+<p class="p1"><span class="Apple-converted-space">    </span>);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (dealerIndex === -1 || logIndex === -1) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>revealingHiddenDealerCard = false;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>alert('No se encontró la carta oculta que se desea revelar.');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>tableState.dealer[dealerIndex] = rank;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>globalLog[logIndex].card = rank;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>shoe[logIndex] = rank;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>revealingHiddenDealerCard = false;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>el('targetIndicator').textContent = 'Carta del Dealer revelada';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>renderTable();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>renderCounters();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>assignCardToTarget(rank);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function assignCardToTarget(rank) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const decks = Number(el('decks').value);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(shoe.length &gt;= decks * 52) { alert('El zapato está completo.'); return; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const isAutomaticDeal = initialDealIndex &lt; initialDealOrder.length;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const target = isAutomaticDeal ? initialDealOrder[initialDealIndex] : selectedTarget;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const indexBefore = isAutomaticDeal ? initialDealIndex : null;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>shoe.push(rank);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>globalLog.push({ target, card: rank, autoIndexBefore: indexBefore });</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(target === 'dealer') {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>tableState.dealer.push(rank);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const parts = target.split('-');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const seatNum = parts[1];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const subIdx = Number(parts[2] || 0);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>tableState.seats[seatNum].hands[subIdx].push(rank);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (tableState.seats[seatNum].hands.length === 2 &amp;&amp; subIdx === 0 &amp;&amp; tableState.seats[seatNum].hands[0].length === 2) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>selectedTarget = `seat-${seatNum}-1`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (isAutomaticDeal) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>initialDealIndex++;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>updateTargetIndicator();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>renderTable();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>renderCounters();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function splitHand(seatNum) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const seat = tableState.seats[seatNum];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (seat.hands.length &gt;= 2) return;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const currentHand = seat.hands[0];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (currentHand.length !== 2 || currentHand[0] !== currentHand[1]) return;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const card1 = currentHand[0];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const card2 = currentHand[1];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>seat.hands = [</p>
+<p class="p1"><span class="Apple-converted-space">    </span>[card1],</p>
+<p class="p1"><span class="Apple-converted-space">    </span>[card2]</p>
+<p class="p1"><span class="Apple-converted-space">  </span>];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>selectedTarget = `seat-${seatNum}-0`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>renderTable();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function undoLastGlobalCard() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(globalLog.length === 0) return;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const last = globalLog.pop();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>shoe.pop();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(last.target === 'dealer') {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (tableState.dealer.length) tableState.dealer.pop();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const parts = last.target.split('-');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const seatNum = parts[1];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const subIdx = Number(parts[2] || 0);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (tableState.seats[seatNum].hands[subIdx].length) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>tableState.seats[seatNum].hands[subIdx].pop();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (last.autoIndexBefore !== null &amp;&amp; last.autoIndexBefore !== undefined) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>initialDealIndex = last.autoIndexBefore;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>updateTargetIndicator();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>renderTable();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>renderCounters();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function clearRound() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>revealingHiddenDealerCard = false;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>tableState.dealer = [];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>initTableState();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>buildInitialDealOrder();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>renderTable();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>updateTargetIndicator();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>renderCounters();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function resetAll() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!confirm('¿Reiniciar todo el zapato y limpiar la mesa?')) return;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>revealingHiddenDealerCard = false;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>shoe = [];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>globalLog = [];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>tableState.dealer = [];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>initTableState();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>buildInitialDealOrder();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>renderTable();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>updateTargetIndicator();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>renderCounters();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function renderTable() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>el('dealerCards').innerHTML = tableState.dealer.length ? tableState.dealer.map(c =&gt; c === '??' ? '&lt;div class="card-chip hidden-card"&gt;🂠 Oculta&lt;/div&gt;' : `&lt;div class="card-chip"&gt;${c}&lt;/div&gt;`).join('') : '&lt;span class="muted" style="font-size:12px;"&gt;Sin cartas&lt;/span&gt;';</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const rules = { das: el('das').value==='yes', h17: el('soft17').value==='H17', surrender: el('surrender').checked };</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const dealerCard = tableState.dealer.find(c =&gt; c !== '??') || null;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>let html = '';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>for(let i=1; i&lt;=numSeats; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const seat = tableState.seats[i];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const cardsHtmlList = seat.hands.map((hand, subIdx) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const targetKey = `seat-${i}-${subIdx}`;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const isSelected = selectedTarget === targetKey;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const handCardsHtml = hand.length ? hand.map(c =&gt; `&lt;div class="card-chip"&gt;${c}&lt;/div&gt;`).join('') : '&lt;span class="muted" style="font-size:11px;"&gt;Vacío&lt;/span&gt;';</p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>let seatActionText = '—';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let seatActionColor = 'var(--muted)';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (hand.length &gt;= 2 &amp;&amp; dealerCard) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const res = decide(hand, dealerCard, rules);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>seatActionText = actionName(res.a);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>seatActionColor = res.a==='HIT'?'var(--amber)':res.a==='STAND'?'var(--green)':res.a==='DOUBLE'?'var(--green)':res.a==='SPLIT'?'var(--blue)':'var(--red)';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>seatActionText = hand.length &lt; 2 ? 'Faltan cartas' : 'Falta crupier';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const canSplit = hand.length === 2 &amp;&amp; hand[0] === hand[1] &amp;&amp; seat.hands.length &lt; 2;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>return `</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="${subIdx &gt; 0 ? 'split-subhand' : ''}" onclick="selectTarget('${targetKey}')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div style="font-size:10px; color:${isSelected?'var(--green)':'var(--muted)'}; font-weight:bold; margin-bottom:2px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>${seat.hands.length &gt; 1 ? 'Mano ' + (subIdx+1) : 'Mano principal'} ${isSelected ? '●' : ''}</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="cards-container"&gt;${handCardsHtml}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div style="font-size:10px; color:var(--muted); display:flex; justify-content:space-between;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span&gt;Total: ${hand.length ? handInfo(hand).total : 0}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="seat-optimal-action" style="color:${seatActionColor};"&gt;${seatActionText}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>${canSplit ? `&lt;button type="button" class="split-btn" onclick="event.stopPropagation(); splitHand(${i})"&gt;Dividir (Split)&lt;/button&gt;` : ''}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}).join('');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>html += `</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="seat-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="seat-header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span&gt;Puesto ${i}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>${cardsHtmlList}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>el('seatsGrid').innerHTML = html;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function renderCounters() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const rc = shoe.reduce((s,c)=&gt;s+hilo(c),0);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const decks = Number(el('decks').value);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const totalCardsInShoe = decks * 52;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const seen = shoe.length;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const remainingCards = Math.max(0, totalCardsInShoe - seen);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const remainingDecks = remainingCards / 52;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const tc = remainingDecks &gt; 0 ? rc / remainingDecks : 0;</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>el('rc').textContent = rc &gt; 0 ? '+' + rc : rc;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>el('tc').textContent = remainingDecks &gt; 0 ? tc.toFixed(2) : '—';</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const estEdge = -0.40 + (tc * 0.5);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>el('betEdge').textContent = `${estEdge &gt; 0 ? '+' : ''}${estEdge.toFixed(2)}%`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>el('betEdge').className = estEdge &gt; 0 ? 'green' : 'red';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>el('betSignal').textContent = estEdge &gt; 0.5 ? 'Subir apuesta' : 'Mantener mínima';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>el('betSignal').className = estEdge &gt; 0.5 ? 'green' : 'amber';</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>el('remaining').textContent = `Barajas restantes: ${remainingDecks.toFixed(2)} · Cartas usadas: ${seen}/${totalCardsInShoe}`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>el('history').textContent = shoe.length ? shoe.map((c,i)=&gt;`${i+1}:${c === '??' ? 'Oculta' : c}`).join(' · ') : 'Sin cartas registradas.';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>renderShoeAudit();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>renderTable();<span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function renderShoeAudit() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const decks = Number(el('decks').value);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const audit = el('shoeAudit');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (!audit) return;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>audit.innerHTML = `&lt;strong class="audit-ok"&gt;Inventario consistente.&lt;/strong&gt; Cartas en juego: ${shoe.length}.`;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function cardValue(rank){ if(rank==='A') return 11; return Number(rank); }</p>
+<p class="p1">function handInfo(hand){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>let total = hand.reduce((s,c)=&gt;s+cardValue(c),0), aces = hand.filter(c=&gt;c==='A').length;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>while(total &gt; 21 &amp;&amp; aces &gt; 0){ total -= 10; aces--; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const soft = hand.includes('A') &amp;&amp; total &lt;= 21 &amp;&amp; hand.reduce((s,c)=&gt;s+cardValue(c),0) === total;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>return {total, soft};</p>
+<p class="p1">}</p>
+<p class="p1">function actionName(a){ return ({HIT:'PEDIR', STAND:'PLANTARSE', DOUBLE:'DOBLAR', SPLIT:'DIVIDIR', SURRENDER:'RENDIRSE'})[a]||a; }</p>
+<p class="p2"><br></p>
+<p class="p1">function decide(hand, dealerRank, rules){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!dealerRank) return {a:'ESPERAR', why:'Asigna la carta visible del crupier.'};</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const d = dealerRank==='A' ? 11 : cardValue(dealerRank);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const info = handInfo(hand), t = info.total, two = hand.length===2;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const pair = two &amp;&amp; hand[0]===hand[1];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const das = rules.das, h17 = rules.h17, surrender = rules.surrender;</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const decks = Number(el('decks').value);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const remainingDecks = Math.max(0, (decks*52 - shoe.length) / 52);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const rc = shoe.reduce((s,c)=&gt;s+hilo(c),0);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const tc = remainingDecks &gt; 0 ? rc / remainingDecks : 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(t &gt; 21) return {a:'BUST', why:'La mano supera 21.'};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (two &amp;&amp; !info.soft &amp;&amp; !pair) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (t === 16 &amp;&amp; d === 10 &amp;&amp; tc &gt;= 0) return {a:'STAND', why:`Desviación TC (${tc.toFixed(1)} ≥ 0): Plantarse con 16 vs 10.`};</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (t === 15 &amp;&amp; d === 10 &amp;&amp; tc &gt;= 4) return {a:'STAND', why:`Desviación TC (${tc.toFixed(1)} ≥ 4): Plantarse con 15 vs 10.`};</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (t === 12 &amp;&amp; d === 3 &amp;&amp; tc &gt;= 2) return {a:'STAND', why:`Desviación TC (${tc.toFixed(1)} ≥ 2): Plantarse con 12 vs 3.`};</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (t === 12 &amp;&amp; d === 2 &amp;&amp; tc &gt;= 3) return {a:'STAND', why:`Desviación TC (${tc.toFixed(1)} ≥ 3): Plantarse con 12 vs 2.`};</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (t === 10 &amp;&amp; d === 11 &amp;&amp; tc &gt;= 4) return {a:'DOUBLE', why:`Desviación TC (${tc.toFixed(1)} ≥ 4): Doblar 10 vs As.`};</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (t === 10 &amp;&amp; d === 10 &amp;&amp; tc &gt;= 4) return {a:'DOUBLE', why:`Desviación TC (${tc.toFixed(1)} ≥ 4): Doblar 10 vs 10.`};</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(two &amp;&amp; surrender &amp;&amp; !pair &amp;&amp; !info.soft &amp;&amp; ((t===16 &amp;&amp; [9,10,11].includes(d)) || (t===15 &amp;&amp; d===10))) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return {a:'SURRENDER', why:'Rendición tardía aplicada.'};</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(pair){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const p=hand[0], v=cardValue(p);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(p==='A' || p==='8') return {a:'SPLIT', why:'Dividir ases y ochos siempre.'};</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(v===10) return {a:'STAND', why:'No dividir pares de 10.'};</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(p==='9') return {a:([2,3,4,5,6,8,9].includes(d)?'SPLIT':'STAND'), why:'Estrategia para par de 9s.'};</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(p==='7') return {a:d&gt;=2&amp;&amp;d&lt;=7?'SPLIT':'HIT', why:'Dividir 7s vs 2–7.'};</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(p==='6') return {a:(d&gt;=(das?2:3)&amp;&amp;d&lt;=6)?'SPLIT':'HIT', why:'Dividir 6s.'};</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(p==='4') return {a:(das&amp;&amp;[5,6].includes(d))?'SPLIT':'HIT', why:'Dividir 4s con DAS vs 5-6.'};</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(p==='2'||p==='3') return {a:(d&gt;=(das?2:4)&amp;&amp;d&lt;=7)?'SPLIT':'HIT', why:'Dividir 2s y 3s.'};</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(info.soft){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(t&gt;=19) return {a:'STAND', why:'17 suave o más: plantarse.'};</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(t===18){</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(two &amp;&amp; d&gt;=3&amp;&amp;d&lt;=6) return {a:'DOUBLE', why:'18 suave: doblar vs 3–6.'};</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(two &amp;&amp; h17 &amp;&amp; d===2) return {a:'DOUBLE', why:'18 suave dobla vs 2 (con H17).'};</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(d===2) return {a:'STAND', why:'18 suave: plantarse vs 2.'};</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(d===7||d===8) return {a:'STAND', why:'18 suave: plantarse vs 7–8.'};</p>
+<p class="p1"><span class="Apple-converted-space">      </span>return {a:'HIT', why:'18 suave: pedir vs 9, 10 o As.'};</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(t===17 &amp;&amp; two &amp;&amp; d&gt;=3 &amp;&amp; d&lt;=6) return {a:'DOUBLE', why:'17 suave: doblar vs 3–6.'};</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if((t===15||t===16) &amp;&amp; two &amp;&amp; d&gt;=4 &amp;&amp; d&lt;=6) return {a:'DOUBLE', why:'Mano suave: doblar vs 4–6.'};</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if((t===13||t===14) &amp;&amp; two &amp;&amp; d&gt;=5 &amp;&amp; d&lt;=6) return {a:'DOUBLE', why:'Mano suave: doblar vs 5–6.'};</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return {a:'HIT', why:'Mano suave baja: pedir carta.'};</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(t&lt;=8) return {a:'HIT', why:'Total duro de 8 o menos: pedir.'};</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(t===9) return {a:two&amp;&amp;d&gt;=3&amp;&amp;d&lt;=6?'DOUBLE':'HIT', why:'9 duro: doblar vs 3–6.'};</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(t===10) return {a:two&amp;&amp;d&gt;=2&amp;&amp;d&lt;=9?'DOUBLE':'HIT', why:'10 duro: doblar vs 2–9.'};</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(t===11) return {a:two&amp;&amp;(d&lt;=10||h17&amp;&amp;d===11)?'DOUBLE':'HIT', why:'11 duro: doblar.'};</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(t===12) return {a:d&gt;=4&amp;&amp;d&lt;=6?'STAND':'HIT', why:'12 duro: plantarse vs 4–6.'};</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(t&gt;=13&amp;&amp;t&lt;=16) return {a:d&gt;=2&amp;&amp;d&lt;=6?'STAND':'HIT', why:'13–16 duro: plantarse vs 2–6.'};</p>
+<p class="p1"><span class="Apple-converted-space">  </span>return {a:'STAND', why:'17 duro o más: plantarse.'};</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function exportLog(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const rows=[['n','carta','valor_hilo'],...shoe.map((c,i)=&gt;[i+1,c === '??' ? 'Oculta' : c,hilo(c)])];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const csv=rows.map(r=&gt;r.join(',')).join('\n');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download='blackjack-mesa-7puestos.csv'; a.click(); URL.revokeObjectURL(url);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">initApp();</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
